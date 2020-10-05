@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#66BB6A</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="playerIconTint">#EEEEEE</color>
+
+
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="textLight">#9E9E9E</color>
+    <color name="dividerColor">#BEBCBC</color>
+    <color name="hintColor">#B8B6B6</color>
+    <color name="activityBackground">#FAFAFA</color>
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="whiteLight">#CEFFFFFF</color>
+    <color name="blackColor">#000000</color>
+    <color name="grayColor">#FAFAFA</color>
+    <color name="grayColorLight">#FAFAFA</color>
+    <color name="grayColorDark">#BEBCBC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="greenColor">#00C853</color>
+    <color name="blueColor">#2962FF</color>
+</resources>

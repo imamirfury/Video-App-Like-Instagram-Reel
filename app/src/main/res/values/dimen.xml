@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottomNavigationHeight">52dp</dimen>
+    <dimen name="actionBarSize">52dip</dimen>
+
+    <dimen name="textSize8">8sp</dimen>
+    <dimen name="textSize11">11sp</dimen>
+    <dimen name="textSize13">13sp</dimen>
+    <dimen name="textSize14">14sp</dimen>
+    <dimen name="textSize16">16sp</dimen>
+    <dimen name="textSize18">18sp</dimen>
+    <dimen name="textSize21">21sp</dimen>
+    <dimen name="textSize24">24sp</dimen>
+
+
+    <dimen name="margin5dp">5dip</dimen>
+    <dimen name="margin10dp">10dip</dimen>
+    <dimen name="margin12dp">12dip</dimen>
+    <dimen name="margin16dp">16dip</dimen>
+    <dimen name="margin2dp">2dip</dimen>
+    <dimen name="margin20dp">20dip</dimen>
+    <dimen name="margin40dp">40dip</dimen>
+    <dimen name="margin30dp">30dip</dimen>
+
+
+    <dimen name="activityPadding">16dip</dimen>
+    <dimen name="padding2dp">2dip</dimen>
+    <dimen name="padding5dp">5dip</dimen>
+    <dimen name="padding8dp">8dip</dimen>
+    <dimen name="padding10dp">10dip</dimen>
+    <dimen name="padding12dp">12dp</dimen>
+    <dimen name="padding16">16dip</dimen>
+
+    <dimen name="cardElevation">4dp</dimen>
+    <dimen name="cardRadius">5dp</dimen>
+    <dimen name="buttonHeight">50dip</dimen>
+    <dimen name="editTextHeight">40dip</dimen>
+    <dimen name="textViewHeight">40dip</dimen>
+    <dimen name="singleItemCardHeight">50dip</dimen>
+    <dimen name="doubleItemCardHeight">80dip</dimen>
+
+    <dimen name="imageElevation">2dp</dimen>
+    <dimen name="dividerHeight">0.5dp</dimen>
+    <dimen name="circleHeight">60dp</dimen>
+    <dimen name="circleWidth">60dp</dimen>
+
+    <dimen name="buttonRadius">30dip</dimen>
+    <dimen name="padding20dp">20dip</dimen>
+    <dimen name="padding25dp">25dip</dimen>
+    <dimen name="margin8dp">8dp</dimen>
+    <dimen name="padding30dp">30dip</dimen>
+    <dimen name="margin50dp">50dip</dimen>
+    <dimen name="dialogButtonHeight">40dp</dimen>
+    <dimen name="lineSpacing">2dp</dimen>
+    <dimen name="cardRadius10">10dp</dimen>
+</resources>
