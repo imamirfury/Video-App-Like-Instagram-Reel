@@ -3,6 +3,7 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.amir.musicvideosample.data.repository.AppRepository
 import com.amir.musicvideosample.model.VideosModel
@@ -15,16 +16,21 @@ import kotlinx.coroutines.launch
 
 class VideosViewModel(application: Application,private val repository : AppRepository) : AndroidViewModel(application){
 
+    val shouldFetchNewVideos = MutableLiveData<Boolean>(false)
 
     init {
-        val videos = JsonConverter().getVideos(application)
+        loadNewVideos(application)
+    }
+
+
+    fun loadNewVideos(context: Context){
+        val videos = JsonConverter().getVideos(context)
         videos?.forEach {
             insertVideo(it)
         }
     }
 
-
-    fun insertVideo(video : VideosModel){
+    private fun insertVideo(video : VideosModel){
         CoroutineScope(Dispatchers.Main).launch {
             repository.insertVideo(video)
         }

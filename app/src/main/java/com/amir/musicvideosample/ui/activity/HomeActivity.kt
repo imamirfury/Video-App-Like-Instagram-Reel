@@ -22,7 +22,6 @@ import org.kodein.di.generic.instance
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), BottomNavigationView.OnNavigationItemSelectedListener,KodeinAware {
 
     override val kodein: Kodein by kodein()
-    private val videosViewModel : VideosViewModel by instance()
 
     override val layoutRes: Int get() = R.layout.activity_home
 

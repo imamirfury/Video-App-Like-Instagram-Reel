@@ -32,13 +32,13 @@ class HomeFragment : Fragment(),KodeinAware {
     override val kodein: Kodein by kodein()
     private val videosViewModel : VideosViewModel by instance()
 
-
     private lateinit var adapter  : ViewPager2Adapter
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding  : FragmentHomeBinding = DataBindingUtil.inflate(LayoutInflater.from(requireContext()),R.layout.fragment_home,null,false)
-        adapter = ViewPager2Adapter(this)
+        adapter = ViewPager2Adapter(this,videosViewModel)
         binding.musicVideosPager.adapter = adapter
         setUpVideoList(binding = binding)
+        loadNewVideosIfNeeded()
         return binding.root
     }
 
@@ -51,6 +51,16 @@ class HomeFragment : Fragment(),KodeinAware {
                 startPreCaching(it)
             })
         }
+    }
+
+    private fun loadNewVideosIfNeeded(){
+        videosViewModel.shouldFetchNewVideos?.observe(this, Observer {
+            it?.let {
+                if (it){
+                    videosViewModel.loadNewVideos(requireContext())
+                }
+            }
+        })
     }
 
 
