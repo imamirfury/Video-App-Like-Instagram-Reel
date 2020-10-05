@@ -44,6 +44,8 @@ android {
 dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    def room_version = "2.2.5"
     def lifecycle_version = "2.2.0"
     def multidex_version = "2.0.1"
 
@@ -88,6 +90,12 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation "androidx.work:work-runtime-ktx:2.4.0-beta01"
 
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+    implementation 'org.kodein.di:kodein-di-generic-jvm:6.2.1'
+    implementation 'org.kodein.di:kodein-di-framework-android-x:6.2.1'
 
 
 

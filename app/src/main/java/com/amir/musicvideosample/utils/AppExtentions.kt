@@ -18,6 +18,16 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.amir.musicvideosample.R
+import kotlinx.coroutines.*
+
+
+fun <T> lazyDeferred(block : suspend CoroutineScope.() -> T) : Lazy<Deferred<T>>{
+    return lazy {
+        GlobalScope.async(start = CoroutineStart.LAZY){
+            block.invoke(this)
+        }
+    }
+}
 
 inline fun <reified T : ViewModel> FragmentActivity.getViewModel(): T {
     return return ViewModelProviders.of(this)[T::class.java]
