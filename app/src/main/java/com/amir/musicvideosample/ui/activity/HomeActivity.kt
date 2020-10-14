@@ -22,11 +22,12 @@ import org.kodein.di.generic.instance
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), BottomNavigationView.OnNavigationItemSelectedListener,KodeinAware {
 
     override val kodein: Kodein by kodein()
-
     override val layoutRes: Int get() = R.layout.activity_home
 
-    override fun getToolbar(binding: ActivityHomeBinding): Toolbar?  = null
+    override fun getToolbar(binding: ActivityHomeBinding): Toolbar?  = binding.toolbar
     override fun onActivityReady(instanceState: Bundle?, binding: ActivityHomeBinding) {
+        enableBack()
+        setToolbarTitleDisable()
         addFragment(R.id.homeContainer, HomeFragment())
         binding.bottomNavigationView.setOnNavigationItemSelectedListener(this)
     }

@@ -16,12 +16,11 @@ import kotlinx.coroutines.launch
 
 class VideosViewModel(application: Application,private val repository : AppRepository) : AndroidViewModel(application){
 
-    val shouldFetchNewVideos = MutableLiveData<Boolean>(false)
+    val shouldFetchNewVideos = MutableLiveData(false)
 
     init {
         loadNewVideos(application)
     }
-
 
     fun loadNewVideos(context: Context){
         val videos = JsonConverter().getVideos(context)

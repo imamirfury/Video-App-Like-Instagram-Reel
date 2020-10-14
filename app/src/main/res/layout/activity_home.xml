@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/blackColor"
         tools:context=".ui.activity.HomeActivity">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -16,6 +17,7 @@
             android:background="@android:color/transparent"
             app:elevation="20dp"
             app:itemIconSize="20dp"
+            android:layout_alignParentBottom="true"
             app:itemIconTint="@android:color/white"
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/menu_bottom_home" />
@@ -25,5 +27,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionBarSize"
+            android:background="@android:color/transparent"
+            android:id="@+id/toolbar"
+            android:layout_marginTop="@dimen/margin20dp"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
+    </RelativeLayout>
 </layout>

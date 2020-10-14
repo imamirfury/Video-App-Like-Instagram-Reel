@@ -13,10 +13,7 @@ import com.amir.musicvideosample.base.MusicVideoApp
 import com.amir.musicvideosample.databinding.FragmentMusicVideoBinding
 import com.amir.musicvideosample.model.VideosModel
 import com.amir.musicvideosample.utils.*
-import com.google.android.exoplayer2.ExoPlaybackException
-import com.google.android.exoplayer2.ExoPlayerFactory
-import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import com.google.android.exoplayer2.upstream.cache.CacheDataSourceFactory
@@ -43,11 +40,7 @@ class MusicVideoFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: FragmentMusicVideoBinding = DataBindingUtil.inflate(
             LayoutInflater.from(requireContext()),
             R.layout.fragment_music_video,
@@ -62,7 +55,6 @@ class MusicVideoFragment : Fragment() {
         setClicks(binding)
         loaderImage = binding.loaderImage
         setLoadingDrawable(loaderImage)
-
 
         return binding.root
     }
@@ -88,7 +80,6 @@ class MusicVideoFragment : Fragment() {
         binding.videoDescription.setTextOrHide(videoModel.description)
         val simplePlayer = getPlayer()
         binding.playerView.player = simplePlayer
-
         videoUrl?.let {
             prepareMedia(it)
         }
@@ -115,7 +106,7 @@ class MusicVideoFragment : Fragment() {
     }
 
     private fun prepareMedia(videoUrl : String){
-        val mediaSource = ExoPlayerUtils.getMediaSource(requireContext(),videoUrl)
+        val mediaSource = ExoPlayerUtils.getMediaSource(cacheDataSourceFactory!!,videoUrl)
         simpleExoPlayer?.prepare(mediaSource)
         simpleExoPlayer?.repeatMode = Player.REPEAT_MODE_ONE
         simpleExoPlayer?.playWhenReady = true
@@ -128,12 +119,12 @@ class MusicVideoFragment : Fragment() {
             super.onPlayerStateChanged(playWhenReady, playbackState)
             when(playbackState){
                 Player.STATE_BUFFERING -> {
-                    loaderImage?.show()
-                    isVideoPlaying = false
+//                    loaderImage?.show()
+//                    isVideoPlaying = false
                 }
                 Player.STATE_READY ->{
-                    loaderImage?.hide()
-                    isVideoPlaying = true
+//                    loaderImage?.hide()
+//                    isVideoPlaying = true
                 }
             }
             printDebugLog(TAG,playbackState.toString())
@@ -142,6 +133,7 @@ class MusicVideoFragment : Fragment() {
         override fun onPlayerError(error: ExoPlaybackException) {
             super.onPlayerError(error)
         }
+
     }
 
     private fun setArtWork(drawable : Drawable,playerView: PlayerView){

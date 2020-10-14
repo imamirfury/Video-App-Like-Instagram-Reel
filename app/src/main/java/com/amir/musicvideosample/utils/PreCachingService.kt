@@ -6,6 +6,7 @@ import android.net.Uri
 import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.amir.musicvideosample.R
 import com.amir.musicvideosample.base.MusicVideoApp
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DataSpec
@@ -34,7 +35,7 @@ class PreCachingService(appContext: Context, params: WorkerParameters) :
             DefaultHttpDataSourceFactory(
                 Util.getUserAgent(
                     applicationContext,
-                    "exo"
+                    applicationContext.getString(R.string.app_name)
                 )
             )
         )

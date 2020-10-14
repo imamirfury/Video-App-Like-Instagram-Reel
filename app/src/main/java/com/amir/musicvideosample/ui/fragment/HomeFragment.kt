@@ -54,7 +54,7 @@ class HomeFragment : Fragment(),KodeinAware {
     }
 
     private fun loadNewVideosIfNeeded(){
-        videosViewModel.shouldFetchNewVideos?.observe(this, Observer {
+        videosViewModel.shouldFetchNewVideos?.observe(this,{
             it?.let {
                 if (it){
                     videosViewModel.loadNewVideos(requireContext())

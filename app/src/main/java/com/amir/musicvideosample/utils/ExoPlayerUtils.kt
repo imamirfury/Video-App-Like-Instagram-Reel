@@ -8,6 +8,7 @@ import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.source.hls.HlsMediaSource
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import com.google.android.exoplayer2.upstream.cache.CacheDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 
 
@@ -24,12 +25,12 @@ object ExoPlayerUtils {
         )
     }
 
-    fun getMediaSource(context: Context, videoUrl: String): MediaSource {
+    fun getMediaSource(cacheDataSourceFactory : CacheDataSourceFactory, videoUrl: String): MediaSource {
         return if (videoUrl.contains(FORMAT_M3U8)) {
-            HlsMediaSource.Factory(getDataSourceFactory(context))
+            HlsMediaSource.Factory(cacheDataSourceFactory)
                 .createMediaSource(Uri.parse(videoUrl))
         } else {
-            ProgressiveMediaSource.Factory(getDataSourceFactory(context))
+            ProgressiveMediaSource.Factory(cacheDataSourceFactory)
                 .createMediaSource(Uri.parse(videoUrl))
         }
     }
